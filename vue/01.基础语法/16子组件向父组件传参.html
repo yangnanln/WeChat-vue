@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.18-beta.0/vue.js"></script>
+    
+</head>
+<body>
+    <div id="app">
+        <!-- 在子组件中获取事件名  定义函数 -->
+       <item @handle="handleClick"></item>
+    </div>
+       
+    <script>
+
+        var item = {
+            data(){
+                return {
+                    msg:"孩子啊"
+                }
+            },
+            template:"<div @click='handleClick'>{{msg}}</div>",
+            methods:{
+                /* 定义方法，将子组件的数据传入父组件 */
+                handleClick(){
+                    /* 给父组件自定义一个时间，向父组件传参 
+                        this.$emit  作用就是触发自定义事件
+                        子组件可以使用$emit触发父组件的自定义事件
+                    */
+                    this.$emit("handle",this.msg)
+                }
+            }
+        }
+        new Vue({
+            el:"#app",
+            components:{
+                item
+            },
+            methods:{
+                /* 定义函数，options是获取到的子组件的数据 */
+                handleClick(options){
+                    console.log(options)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="https://cdn.bootcss.com/vue/2.5.18-beta.0/vue.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        *{margin: 0;padding: 0}
+        .item img{
+            width: 100px;
+        }
+        .item{
+            margin-top: 10px;
+        }
+        #app{
+            width: 398px;
+            margin-left: auto;
+            margin-right: auto;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between
+
+        }
+        
+    </style>
+</head>
+<body>
+       <!--  http://api.douban.com/v2/movie/top250 -->
+
+       <div id="app">
+
+            <div class="item" v-for="(item,index) of movies ">
+                <img :src="item.imgUrl" alt="">
+                <h6>{{item.title}}</h6>
+            </div>
+       </div>
+
+       <script>
+           new Vue({
+               el:"#app",
+               data:{
+                   movies:[]
+               },
+               /* 钩子函数  在发送请求后，拿回数据 */
+               mounted(){
+                   $.ajax({
+                       url:"https://douban.uieee.com/v2/movie/top250",
+                        type:"GET",
+                        dataType:"jsonp",
+                        success:res=>{// res 全部的json数据
+                            var subjects=res.subjects;  //获取 json数据中的subjects数据  是个数组
+                            var movies=[]
+                            subjects.forEach(res=>{   //遍历每一个subjects数据获取  title imageUrl
+                                var title=res.title;
+                                var imgUrl=res.images.small;  
+                                var temp={   //将  title和imageUrl 放到temp对象中
+                                    title,
+                                    imgUrl
+                                }
+                                movies.push(temp); //将temp放到movies数组中
+                            })
+                            console.log(movies);
+                            this.movies=movies  //将movies的值赋给  data中的movies
+                        }
+                        
+                    
+                   })
+               }
+           })
+       </script>
+</body>
+</html>

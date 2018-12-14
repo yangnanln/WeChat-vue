@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.18-beta.0/vue.js"></script>
+    
+</head>
+<body>
+    <div id="app">
+        <item :word="word"></item>
+    </div>
+
+    <script>
+        /* 父组件向子组件传参 */
+        var item={
+
+            props:{
+                /* 接受父组件传过来的参数 */
+                word:{
+                    type:String
+                }
+            },
+            data(){
+                return {
+                    msg:"hello"
+                }
+            },
+            template:"<div>{{msg}}{{word}}</div>"
+        }
+
+        new Vue({
+            el:"#app",
+            data:{
+                word:"你好呀"
+            },
+            components:{
+                item
+            }
+        })
+    </script>
+</body>
+</html>

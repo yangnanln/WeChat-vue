@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.18-beta.0/vue.js"></script>
+   
+    <style>
+        .show{
+            color:red
+        }
+    </style>
+
+</head>
+<body>
+    <div id="app">
+        <!-- 这里可以使用多个class名 -->
+        <p :class="[isShow]" @click="handle">hello</p>
+    </div>
+    <script>
+    
+        var vm=new Vue({
+            el:"#app",
+            data:{
+                isShow:"show",
+                /* two:"two" */
+            },
+            methods:{
+                handle(){
+                    this.isShow=(this.isShow=="show")?"":"show"
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

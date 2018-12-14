@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.18-beta.0/vue.js"></script>
+    <style>
+        *{margin: 0;padding: 0}
+        .navbar{
+            height: 80px;
+            text-align: center;
+            background: pink;
+
+            position: fixed;
+            width: 100%;
+            left: 0;
+            right: 0;
+        }
+        .container{
+            height:2000px ;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="navbar" :style="filter">
+            导航
+        </div>
+
+        <div class="container"></div>
+    </div>
+    <script>
+    
+        new Vue({
+            el:"#app",
+            data:{
+                filter:{
+                    opacity:0
+                }
+            },
+            mounted(){
+                var self=this;
+                window.onscroll=function(){
+                    /* 获取滚动条的位置 scroll 滚动 */
+                    var top=document.documentElement.scrollTop
+                    var opacity=top/200;
+                    if(opacity>=1){
+                        opacity=1
+                    }
+                    
+                    console.log(opacity)
+                    /* 这里不能直接用this.opacity  this在这里指代的是window  所以在前面讲this赋给self */
+                    self.filter.opacity=opacity
+                }
+            }
+        })
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.18-beta.0/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- @click  点击事件 -->
+        <p @click="handle">{{msg}}</p>
+        
+    </div>
+   
+
+    <script>
+
+
+        /* new Vue   new个一个Vue的实例 */
+        var vm=new Vue({
+           /*  new Vue({ */
+            /* 挂载点 */
+            el:"#app",
+            /* 数据  作用域 在挂载点里面 */
+            
+            data:{
+                msg:"hello world"
+            },
+            methods:{
+                handle(){
+                   this.msg="change"
+                }
+            },
+            template:""
+        })
+    </script>
+</body>
+</html>

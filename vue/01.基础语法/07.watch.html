@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.18-beta.0/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <!-- {{sum()}} -->
+        {{sum}}
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                num1:10,
+                num2:20,
+
+                sum:30,
+                
+            },
+            /* 监听 data里面的某个值改变的时候触发 */
+            watch:{
+                num1(){
+                    this.sum=this.num1+this.num2
+                },//es6的语法
+                num2:function(){
+                    this.sum=this.num1+this.num2
+                }
+            }
+           /*  methods:{
+                sum:function(){
+                    return this.num1+this.num2
+                }
+            } */
+        })
+    </script>
+</body>
+</html>

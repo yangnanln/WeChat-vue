@@ -1,0 +1,12 @@
+/* components/movieItem/index.wxss */
+.container{
+    display: flex;
+        flex-direction: column
+}
+image{
+    width: 200rpx;
+    height: 270rpx;
+}
+view,text {
+    font-size: 25rpx;
+}

@@ -1,0 +1,11 @@
+<!--pages/index/index.wxml-->
+<view class="container" >
+    
+   <movie-item wx:for="{{movies}}" wx:key="{{index}}" movie="{{item}}"></movie-item>
+
+   <view class="loading" >
+        <image  src="/images/loding.gif" >
+            
+        </image>加载更多数据
+    </view>
+</view>

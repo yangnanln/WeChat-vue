@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.18-beta.0/vue.js"></script>
+    
+</head>
+<body>
+
+    <div id="app">
+        <!-- 3. 使用组件 -->
+        <item :word="word"></item>
+    </div>
+    <script>
+        /* 1. 定义组件 */
+        var item={
+            /* 通过Prop 向子组件传递数据  在下面的模板中就能使用该数据
+            一个组件默认可以拥有人任意数量的prop ，任何值都可以传递给prop
+            在组件实例中访问这个值，就像访问data中的数据一样 */
+            props:{
+                word:{
+                    type:String
+                }
+            },
+            /* 定义组件的时候，data选项必须是一个函数，
+            因此每一个实例可以维护一份被返回对象的独立的拷贝
+             */
+            data(){
+                return{
+                    msg:"hello world"
+                }
+            },
+            /* 模板   根元素
+                每个组件必须只有一个根元素  可以将模板中的内容包裹在一个父元素中
+
+            */
+            template:"<div>{{msg}}{{word}}</div>"
+        }
+
+        new Vue({
+            el:"#app",
+            data:{
+                word:"vue hen niu bi "
+            },
+            /* 2. 注册组件   局部注册  在其子组件中不可用*/
+            components:{
+                item
+            },
+            
+        })
+    </script>
+</body>
+</html>

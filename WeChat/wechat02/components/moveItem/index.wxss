@@ -1,0 +1,12 @@
+/* components/moveItem/index.wxss */
+image{
+    width: 200rpx;
+    height: 270rpx;
+}
+.container{
+    display: flex;
+    flex-direction: column
+}
+view,text{
+    font-size: 30rpx;
+}

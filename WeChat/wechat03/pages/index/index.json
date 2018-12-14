@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "movie-item":"/components/movieItem/index"
+    },
+    "enablePullDownRefresh": true
+  
+}

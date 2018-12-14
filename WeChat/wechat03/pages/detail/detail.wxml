@@ -1,0 +1,7 @@
+<!--pages/detail/detail.wxml-->
+<view class="container" hover-class="none" hover-stop-propagation="false">
+    <text>{{title}}</text>
+    <image src="{{imageUrl}}">
+        
+    </image>
+</view>

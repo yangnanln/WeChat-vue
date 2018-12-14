@@ -1,0 +1,12 @@
+<!--pages/index/index.wxml-->
+<!-- 插值表达式 -->
+
+
+
+<view class="container" hover-class="none" hover-stop-propagation="false">
+    <MovieItem wx:for="{{movies}}" wx:key="{{index}}" movie="{{item}}">
+        
+    </MovieItem>
+    
+   
+</view>
